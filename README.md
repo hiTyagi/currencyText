@@ -60,3 +60,8 @@ or
     $(".textCurr").currencyText({
       type:'international'
     });
+
+
+<h3>License</h3>
+
+currencyText is released under the MIT license.
