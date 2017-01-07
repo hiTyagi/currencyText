@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>currencyText Example</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="currencyText.js"></script>
+</head>
+<body>
+	Input 79,234,567,890: <input type="text" name="sample" value="79234856789"/><br/>
+	Span 123,456,789: <span>123456789</span><br/>
+	Label 123,456: <label>123456</label><br/>
+	<hr/>
+	<select id="type">
+		<option value="indian">Indian</option>
+		<option value="international">International</option>
+	</select>
+	<input id="num"/><label id="numInText"></label>
+	<script type="text/javascript">
+		$(function(){
+			$("input,span,label").currencyText();
+
+			$("#num").change(function(){
+				$("#numInText").text($("#num").val()).currencyText({
+					type : $("#type").val(),
+					shortHand:false,
+					minimum:5
+				});
+			});
+
+		});
+	</script>
+</body>
+</html>
