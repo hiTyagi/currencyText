@@ -36,6 +36,12 @@ Converts Number to Textual Currency.
 				<td>Integer value greater than 2</td>
 				<td>Minimum number of digits after which number should be converted to text.</td>
 			</tr>
+			<tr>
+				<td>decimal</td>
+				<td>2</td>
+				<td>Integer value (>=0)</td>
+				<td>Number of digits after decimal point.</td>
+			</tr>
 		</tbody>
 	</table>
   
