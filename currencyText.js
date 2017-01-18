@@ -1,3 +1,9 @@
+/**
+* currencyText.js
+* ver. 0.0.1
+* author Himanshu Tyagi himanshu.thecbuilder@gmail.com
+**/
+
 (function( $ ) {
 	var settings = {};
 
