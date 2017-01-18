@@ -14,6 +14,9 @@
 		if(settings.minimum < 2){
 			settings.minimum = 2;
 		}
+		if(settings.decimal < 0){
+			settings.decimal = 0;
+		}
 	}
 
 	function convertToText($elem){
@@ -61,7 +64,7 @@
 		var divisor = "1";
 		for(var i=0; i<length; i++) divisor += "0";
 
-		var finalFixed = (fixed / parseFloat(divisor)).toFixed(2);
+		var finalFixed = (fixed / parseFloat(divisor)).toFixed(settings.decimal);
 		return finalFixed + " " +internationalTextualValue(length);
 	}
 
@@ -80,7 +83,7 @@
 		var divisor = "1";
 		for(var i=0; i<length; i++) divisor += "0";
 
-		var finalFixed = (fixed / parseFloat(divisor)).toFixed(2);
+		var finalFixed = (fixed / parseFloat(divisor)).toFixed(settings.decimal);
 		return finalFixed+ " " + indianTextualValue(length);
 	}
 
@@ -104,6 +107,7 @@
 	$.fn.currencyText.defaults = {
 		type: 		"indian",//international,indian
 		minimum: 	2,
-		shortHand: 	true
+		shortHand: 	true,
+		decimal: 	2
 	};
 }( jQuery ));
