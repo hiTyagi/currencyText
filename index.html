@@ -1,33 +1,145 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>currencyText Example</title>
-	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-	<script src="currencyText.js"></script>
-</head>
-<body>
-	Input 79,234,567,890: <input type="text" name="sample" value="79234856789"/><br/>
-	Span 123,456,789: <span>123456789</span><br/>
-	Label 123,456: <label>123456</label><br/>
-	<hr/>
-	<select id="type">
-		<option value="indian">Indian</option>
-		<option value="international">International</option>
-	</select>
-	<input id="num"/><label id="numInText"></label>
-	<script type="text/javascript">
-		$(function(){
-			$("input,span,label").currencyText();
-
-			$("#num").change(function(){
-				$("#numInText").text($("#num").val()).currencyText({
-					type : $("#type").val(),
-					shortHand:false,
-					minimum:5
+	<head>
+		<title>currencyText Example</title>
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+		<script src="currencyText.js"></script>
+	</head>
+	<body>
+		<h2>Static Examples</h2>
+		<table border="1">
+		<thead>
+			<tr>
+				<th>Type</th>
+				<th>Input</th>
+				<th>Output</th>
+				<th>Comment</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Input</td>
+				<td><input type="text" name="sample" value="79234856789"/></td>
+				<td><input type="text" class="input" name="sample" value="79234856789"/></td>
+				<td>works on input</td>
+			</tr>
+			<tr>
+				<td>Span</td>
+				<td><span>123456789</span></td>
+				<td><span class="span">123456789</span></td>
+				<td>works on span</td>
+			</tr>
+			<tr>
+				<td>Label</td>
+				<td><label>123456</label></td>
+				<td><label class="label">123456</label></td>
+				<td>works on label</td>
+			</tr>
+			<tr>
+				<td>Div</td>
+				<td>
+					<div>53245</div>
+				</td>
+				<td>
+					<div class="div">53245</div>
+				</td>
+				<td>works on div</td>
+			</tr>
+		</tbody>
+		<table>
+		<hr/>
+		<h2>Dynamic Example</h2>
+		<p>Input any number in text box and tab out to see the changed format.</p>
+		Type : <select id="type">
+			<option value="indian">Indian</option>
+			<option value="international">International</option>
+		</select>&nbsp;
+		Name : <select id="name">
+			<option value="s">Short Name</option>
+			<option value="f">Full Name</option>
+		</select>&nbsp;
+		Minimum digits : <select id="minimum">
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+		</select>&nbsp;
+		Decimal digits : <select id="decimal">
+			<option value="0">0</option>
+			<option value="1">1</option>
+			<option value="2" selected>2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+		</select>&nbsp;
+		Number : <input id="num" type="number"/><label id="numInText"></label>
+		<hr/>
+		<div>
+			<h2>currencyText</h2>
+			<p>Converts Number to Textual Currency.</p>
+			<h3>Examples :</h3>
+			<ul>
+				<li>100000  -> 1.00 Lakh (Indian) or 100.00 Thousand (International)</li>
+				<li>3453232 -> 34.53 Lakh (Indian) or 3.45 Million (International)</li>
+			</ul>
+			<h3>Options :</h3>
+			<table border="1">
+				<thead>
+					<tr>
+						<th>Option</th>
+						<th>Default</th>
+						<th>Possible values</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>type</td>
+						<td>'indian'</td>
+						<td>'indian', 'international'</td>
+						<td>Type of texual currency.</td>
+					</tr>
+					<tr>
+						<td>shortHand</td>
+						<td>true</td>
+						<td>true, false</td>
+						<td>Whether full currency text is required or short form.</td>
+					</tr>
+					<tr>
+						<td>minimum</td>
+						<td>2</td>
+						<td>Integer value greater than 2</td>
+						<td>Minimum number of digits after which number should be converted to text.</td>
+					</tr>
+					<tr>
+						<td>decimal</td>
+						<td>2</td>
+						<td>Integer value (>=0)</td>
+						<td>Number of digits after decimal point.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<script type="text/javascript">
+			$(function(){
+				//pulggin supports global settings
+				$.fn.currencyText.defaults.type="indian";
+			
+				//can be applied on various element types
+				$(".input, .span, .label, .div").currencyText();
+			
+				//can have custom settings, options
+				$("#num, #type, #name, #minimum, #decimal").change(function(){
+					$("#numInText").text($("#num").val()).currencyText({
+						type : $("#type").val(),
+						shortHand:$("#name").val()==="s",
+						minimum:parseInt($("#minimum").val()),
+						decimal:parseInt($("#decimal").val())
+					});
 				});
+			
 			});
-
-		});
-	</script>
-</body>
+		</script>
+	</body>
 </html>
