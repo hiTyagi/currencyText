@@ -1,5 +1,5 @@
-# currencyText
-Converts Number to Textual Currency.
+# numericText
+Converts Number to Short Textual value.
 
 <h3>Examples :</h3>
 <ul>
@@ -48,26 +48,26 @@ Converts Number to Textual Currency.
 <h3>Usage</h3>
 <ol>
 <li>Add jQuery</li>
-<li>Add currencyText</li>
-<li>Use jQuery selector to convert number to currency text</li>
+<li>Add numericText</li>
+<li>Use jQuery selector to convert number to short text</li>
 </ol>
 
 <h2>e.g.</h2>
     //html
     <span id="num">231245.45</span>
     //js
-    $("span#num").currencyText();
+    $("span#num").numericText();
 
 or
     
     //html
     <input class="textCurr" value="234534.789"/>
     //js
-    $(".textCurr").currencyText({
+    $(".textCurr").numericText({
       type:'international'
     });
 
 
 <h3>License</h3>
 
-currencyText is released under the MIT license.
+numericText is released under the MIT license.

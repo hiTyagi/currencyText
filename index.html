@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>currencyText Example</title>
+		<title>numericText Example</title>
 		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-		<script src="build/currencyText.min.js"></script>
+		<script src="build/numericText.min.js"></script>
 	</head>
 	<body>
 		<h2>Static Examples</h2>
@@ -76,8 +76,8 @@
 		Number : <input id="num" type="number"/><label id="numInText"></label>
 		<hr/>
 		<div>
-			<h2>currencyText</h2>
-			<p>Converts Number to Textual Currency.</p>
+			<h2>numericText</h2>
+			<p>Converts Number to Textual value.</p>
 			<h3>Examples :</h3>
 			<ul>
 				<li>100000  -> 1.00 Lakh (Indian) or 100.00 Thousand (International)</li>
@@ -124,14 +124,14 @@
 		<script type="text/javascript">
 			$(function(){
 				//pulggin supports global settings
-				$.fn.currencyText.defaults.type="indian";
+				$.fn.numericText.defaults.type="indian";
 			
 				//can be applied on various element types
-				$(".input, .span, .label, .div").currencyText();
+				$(".input, .span, .label, .div").numericText();
 			
 				//can have custom settings, options
 				$("#num, #type, #name, #minimum, #decimal").change(function(){
-					$("#numInText").text($("#num").val()).currencyText({
+					$("#numInText").text($("#num").val()).numericText({
 						type : $("#type").val(),
 						shortHand:$("#name").val()==="s",
 						minimum:parseInt($("#minimum").val()),
